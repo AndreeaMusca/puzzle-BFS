@@ -43,9 +43,9 @@ public:
         {
             // TODO: Do it nicer , who is first? second? structure binding
             auto currentNode = openSet.front();
-            //auto&&[currentState, currentMove]
-            auto&& currentState = currentNode.first;
-            auto&& currentMoves = currentNode.second;
+            auto&& [currentState, currentMoves] = currentNode;
+            /*auto&& currentState = currentNode.first;
+            auto&& currentMoves = currentNode.second;*/
             openSet.pop();
 
             // some logging
