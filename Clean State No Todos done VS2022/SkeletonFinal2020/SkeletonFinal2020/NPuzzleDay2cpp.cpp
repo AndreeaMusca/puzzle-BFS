@@ -16,10 +16,9 @@ static void Test(const State<N>& initialState)
 
         std::cout << "Found solution in " << result.size() << " moves:" << std::endl;
         // TODO 
-		for (auto it = result.begin(); it != result.end(); it++)
-        {
-            std::cout << *it << " ";
-        }        
+
+        //std::copy(result.begin(), result.end(), std::ostream_iterator<MoveDirection>(std::cout, " "));
+        std::ranges::copy(result, std::ostream_iterator<MoveDirection>(std::cout, " "));
 
         clock_t end = clock();
         double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
@@ -41,7 +40,8 @@ int main()
     //State4X4 state_4x4_50_moves{ { 7, 4, 1, 13, 15, 14, 5, 10, 0, 9, 11, 12, 2, 8, 6, 3 } }; // 60 moves 
     //State4X4 state_4x4_50_moves{ { 0, 12, 9, 13, 15, 11, 10, 14, 3, 7, 2, 5, 4, 8, 6, 1 } }; // NA 80 moves? this didn't solve in A* and didn't run long enough with IDA*.
 
-    Test(state_3x3_18moves);
+    //Test(state_3x3_18moves);
+    Test(state_4x4_50_moves);
 
 	system("pause");
     return 0;
